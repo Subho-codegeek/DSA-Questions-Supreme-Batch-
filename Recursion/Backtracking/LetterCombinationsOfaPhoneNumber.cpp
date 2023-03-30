@@ -3,6 +3,7 @@ class Solution
 public:
     void solve(vector<string> &ans, int index, string output, string digits, vector<string> &mapping)
     {
+        // base case
         if (index >= digits.length())
         {
             ans.push_back(output);
@@ -16,7 +17,9 @@ public:
         {
             char ch = value[i];
             output.push_back(ch);
+            // recursive call
             solve(ans, index + 1, output, digits, mapping);
+            // backtrack
             output.pop_back();
         }
     }
