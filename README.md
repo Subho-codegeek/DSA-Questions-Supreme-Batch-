@@ -1,3 +1,2 @@
-# DSA-Questions_Supreme-Batch
+# Sharing every DS-Algo problems I'm solving and everything I'm learning in a topic wise manner
 
-This contains all the questions along with the code that I have been solving through out the entire course.
