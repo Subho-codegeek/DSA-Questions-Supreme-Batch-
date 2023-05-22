@@ -27,7 +27,7 @@ public:
 
         // normal flow
         // TODO: add one more condition in the QUEUE FULL if block
-        if ((front == 0 && rear == size - 1))
+        if ((front == 0 && rear == size - 1)) // rear = front-1
         {
             cout << "Q is fulll, cannot insert" << endl;
         }
