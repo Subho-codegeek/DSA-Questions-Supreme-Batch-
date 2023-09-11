@@ -105,6 +105,7 @@ void printBottomView(Node *root)
         Node *frontNode = temp.first;
         int hd = temp.second;
 
+        // jitna deep tak hd(height difference ja sakta hei utna jao bina kisi consition ka)
         topNode[hd] = frontNode->data;
 
         if (frontNode->left)
@@ -132,7 +133,7 @@ void printLeftView(Node *root, vector<int> &ans, int level)
         return;
     }
 
-    if (level == ans.size())
+    if (level == ans.size()) // at every level if the size of ans array is equal to the level then we will push the element
     {
         ans.push_back(root->data);
     }
@@ -148,11 +149,12 @@ void printRightView(Node *root, vector<int> &ans, int level)
         return;
     }
 
-    if (level == ans.size())
+    if (level == ans.size()) // at every level if the size of ans array is equal to the level then we will push the element
     {
         ans.push_back(root->data);
     }
 
+    // we will make the right call first in case of right view
     printRightView(root->right, ans, level + 1);
     printRightView(root->left, ans, level + 1);
 }
@@ -164,6 +166,7 @@ void printLeftBoundary(Node *root)
         return;
     }
 
+    // if its a leaf node
     if (root->left == NULL && root->right == NULL)
     {
         return;
@@ -188,6 +191,7 @@ void printLeafBoundary(Node *root)
         return;
     }
 
+    // if its a leaf node
     if (root->left == NULL && root->right == NULL)
     {
         cout << root->data << " ";
@@ -203,6 +207,7 @@ void printRightBoundary(Node *root)
         return;
     }
 
+    // if its a leaf node
     if (root->left == NULL && root->right == NULL)
     {
         return;

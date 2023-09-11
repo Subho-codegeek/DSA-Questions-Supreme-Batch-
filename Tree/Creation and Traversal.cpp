@@ -38,7 +38,29 @@ Node *buildTree()
     return root;
 }
 
-void levelOrderTraversal(Node *root)
+void SimplelevelOrderTraversal(Node *root) // this do not print a new line at the end of a level
+{
+    queue<Node *> q;
+    q.push(root);
+
+    while (!(q.empty()))
+    {
+        Node *temp = q.front();
+        q.pop();
+
+        cout << temp->data << " ";
+        if (temp->left)
+        {
+            q.push(temp->left);
+        }
+        if (temp->right)
+        {
+            q.push(temp->right);
+        }
+    }
+}
+
+void levelOrderTraversal(Node *root) // line wise printing-> prints new line at the end of each level
 {
 
     queue<Node *> q;
@@ -99,7 +121,7 @@ void preOrderTraversal(Node *root)
         return;
     }
 
-    // LNR
+    // NLR
     cout << root->data << " ";
     preOrderTraversal(root->left);
     preOrderTraversal(root->right);
@@ -114,7 +136,7 @@ void postOrderTraversal(Node *root)
         return;
     }
 
-    // LNR
+    // LRN
     postOrderTraversal(root->left);
     postOrderTraversal(root->right);
     cout << root->data << " ";
@@ -129,7 +151,7 @@ int height(Node *root)
 
     int leftHeight = height(root->left);
     int rightHeight = height(root->right);
-    int ans = max(leftHeight, rightHeight) + 1;
+    int ans = max(leftHeight, rightHeight) + 1; // adding 1 because for every successful iteration 1 will be added
 
     return ans;
 }
