@@ -1,6 +1,7 @@
 class Solution
 {
 public:
+    // this is being done by inorder traversal-> getting sorted array and the k-1 th element becomes the answer
     void solve(TreeNode *root, vector<int> &ans)
     {
         if (root == NULL)
